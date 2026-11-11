@@ -1,0 +1,21 @@
+@use "@/shared/styles" as *;
+
+.root {
+  padding-block: to-rem(64px);
+  animation: fade-up 400ms ease both;
+
+  @include smaller-than(sm) {
+    padding-block: to-rem(32px);
+  }
+}
+
+.code {
+  @include gradient-text;
+  font-size: clamp(to-rem(88px), 18vw, to-rem(180px));
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}

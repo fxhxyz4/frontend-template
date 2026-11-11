@@ -1,0 +1,25 @@
+.bar {
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 300;
+  height: 3px;
+  background: var(--app-gradient);
+  transform-origin: left;
+  transform: scaleX(0);
+  opacity: 0;
+  transition: opacity 300ms ease 100ms;
+
+  &[data-active] {
+    opacity: 1;
+    animation: progress 1.6s cubic-bezier(0.1, 0.6, 0.2, 1) forwards;
+  }
+}
+
+@keyframes progress {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(0.9);
+  }
+}

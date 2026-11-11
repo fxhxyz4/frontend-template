@@ -1,0 +1,5 @@
+@use "sass:math";
+
+@function to-rem($px) {
+  @return calc(#{math.div($px, 16px)}rem * var(--mantine-scale));
+}

@@ -1,0 +1,35 @@
+@use "@/shared/styles" as *;
+
+.header {
+  background: var(--app-surface-glass);
+  -webkit-backdrop-filter: saturate(180%) blur(12px);
+  backdrop-filter: saturate(180%) blur(12px);
+}
+
+.navbar {
+  background: var(--app-navbar-bg, var(--mantine-color-body));
+  -webkit-backdrop-filter: saturate(160%) blur(16px);
+  backdrop-filter: saturate(160%) blur(16px);
+}
+
+.content {
+  max-width: to-rem(1440px);
+  margin-inline: auto;
+}
+
+.skip {
+  position: fixed;
+  top: to-rem(8px);
+  left: to-rem(8px);
+  z-index: 1000;
+  padding: to-rem(8px) to-rem(14px);
+  border-radius: var(--mantine-radius-md);
+  background: var(--mantine-primary-color-filled);
+  color: var(--mantine-primary-color-contrast);
+  transform: translateY(-200%);
+  transition: transform 150ms ease;
+
+  &:focus {
+    transform: none;
+  }
+}

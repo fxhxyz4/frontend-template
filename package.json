@@ -1,0 +1,87 @@
+{
+  "name": "frontend-template",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview",
+    "typecheck": "tsc -b",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "check": "npm run typecheck && npm run lint && npm run format:check && npm run test",
+    "prepare": "husky || true",
+    "check:branch": "node scripts/check-branch.mjs",
+    "commitlint": "commitlint --edit",
+    "test:coverage": "vitest run --coverage",
+    "docker:build": "docker build -t frontend-template .",
+    "docker:run": "docker run --rm -p 3000:8080 frontend-template",
+    "qr": "node --env-file-if-exists=.env scripts/qr.mjs",
+    "host": "docker compose up --build -d",
+    "host:stop": "docker compose down",
+    "host:logs": "docker compose logs -f"
+  },
+  "dependencies": {
+    "@fontsource-variable/inter": "^5.3.0",
+    "@mantine/charts": "^9.8.0",
+    "@mantine/core": "^9.8.0",
+    "@mantine/hooks": "^9.8.0",
+    "@mantine/notifications": "^9.8.0",
+    "@tabler/icons-react": "^3.51.0",
+    "@tanstack/react-query": "^5.107.1",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "react-router": "^8.5.1",
+    "recharts": "^3.10.1"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^21.2.4",
+    "@commitlint/config-conventional": "^21.2.4",
+    "@eslint/js": "^10.0.1",
+    "@fxhxyz/prettier-config": "^2.1.10",
+    "@ianvs/prettier-plugin-sort-imports": "^4.7.1",
+    "@testing-library/jest-dom": "^7.0.1",
+    "@testing-library/react": "^16.3.3",
+    "@testing-library/user-event": "^14.6.9",
+    "@types/node": "^24.19.2",
+    "@types/qrcode": "^1.5.6",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "^6.1.2",
+    "eslint": "^10.14.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-react-hooks": "^7.1.1",
+    "eslint-plugin-react-refresh": "^0.5.7",
+    "globals": "^17.14.0",
+    "husky": "^9.1.7",
+    "jsdom": "^31.0.0",
+    "lint-staged": "^17.6.0",
+    "postcss": "^8.5.32",
+    "postcss-preset-mantine": "^1.18.0",
+    "prettier": "^3.10.0",
+    "prettier-plugin-multiline-arrays": "^4.1.11",
+    "qrcode": "^1.5.4",
+    "sass": "^1.108.2",
+    "typescript": "~6.0.0",
+    "typescript-eslint": "^8.72.2",
+    "vite": "^8.3.6",
+    "vitest": "^5.1.0"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "lint-staged": {
+    "*.{ts,tsx}": [
+      "eslint --fix --max-warnings=0",
+      "prettier --write"
+    ],
+    "*.{js,mjs,cjs,json,scss,css,html}": [
+      "prettier --write"
+    ]
+  }
+}

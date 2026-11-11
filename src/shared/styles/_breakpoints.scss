@@ -1,0 +1,29 @@
+@use "sass:map";
+
+$breakpoints: (
+  xs: 30em,
+  //  480
+  sm: 40em,
+  //  640
+  md: 53.75em,
+  //  860 tablet
+  lg: 64em,
+  // 1024
+  xl: 90em, // 1440 desktop
+);
+
+@function bp($name) {
+  @return map.get($breakpoints, $name);
+}
+
+@mixin smaller-than($name) {
+  @media (max-width: calc(#{bp($name)} - 0.0625em)) {
+    @content;
+  }
+}
+
+@mixin larger-than($name) {
+  @media (min-width: bp($name)) {
+    @content;
+  }
+}

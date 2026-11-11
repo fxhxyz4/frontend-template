@@ -1,0 +1,15 @@
+.swatches {
+  display: inline-flex;
+}
+
+.swatch {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 2px solid var(--mantine-color-body);
+  box-shadow: 0 0 0 1px var(--mantine-color-default-border);
+
+  & + & {
+    margin-left: -6px;
+  }
+}
